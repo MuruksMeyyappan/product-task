@@ -21,11 +21,19 @@ import Announcement from "components/Announcement";
 import Footer from "components/Footer";
 import Navbar from "components/Navbar";
 import { useLocation } from "react-router-dom";
+import { useCartStore } from "context";
+import { addToCart } from "context/cart/cartReducer";
 
 const Product = () => {
   const {
     state: { product },
   } = useLocation();
+
+  const [, dispatch] = useCartStore();
+
+  const addToCard = (product) => {
+    dispatch(addToCart(product, 1));
+  };
 
   return (
     <Container>
@@ -63,7 +71,13 @@ const Product = () => {
               </FilterContainer>
 
               <AddContainer>
-                <Button>Add to Shop List</Button>
+                <Button
+                  onClick={() => {
+                    addToCard(product);
+                  }}
+                >
+                  Add to Shop List
+                </Button>
               </AddContainer>
             </InfoContainer>
           </>
