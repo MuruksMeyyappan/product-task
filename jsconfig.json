@@ -1,0 +1,12 @@
+{
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "context": ["context"],
+      "pages": ["pages"],
+      "components": ["components"],
+      "hooks": ["hooks"]
+    }
+  }
+}
